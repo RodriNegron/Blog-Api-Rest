@@ -36,11 +36,9 @@ public class UserModel {
     public void setId(Integer id) {
         this.id = id;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
-    
     public void setPassword(String password) {
         this.password = password;
     }

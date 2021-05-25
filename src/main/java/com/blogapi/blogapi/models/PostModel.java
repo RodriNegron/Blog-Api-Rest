@@ -2,6 +2,11 @@ package com.blogapi.blogapi.models;
 
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.sql.Date;
 
 import javax.persistence.*;
@@ -20,10 +25,14 @@ public class PostModel {
     @Column(nullable = false)
     private String content;
     private String image;
-    private String category;
-    private Date release_date;
-    private boolean active;
+    private boolean active=true; 
     
+   /*  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private UserModel user; */
+
     //region Getters & setters
     
     public void setTitle(String title) {
@@ -35,15 +44,6 @@ public class PostModel {
     public void setImage(String image) {
         this.image = image;
     }
-    public void setCategory(String category) {
-        this.category = category;
-    }
-    public void setRelease_date(Date release_date) {
-        this.release_date = release_date;
-    }
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 
     public String getTitle() {
         return title;
@@ -54,18 +54,11 @@ public class PostModel {
     public String getImage() {
         return image;
     }
-    public String getCategory() {
-        return category;
-    }
-    public Date getRelease_date() {
-        return release_date;
-    }
     public Integer getId() {
         return id;
     }
-
     public Boolean getActive(){
         return active;
-    }
+    } 
     //endregion
 }

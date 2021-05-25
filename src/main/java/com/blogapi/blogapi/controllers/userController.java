@@ -60,7 +60,6 @@ public class userController {
         jwtUtility.generateToken(userDetails);
 
         return new JwtResponse(token);
-
     }
 
     @PostMapping()
