@@ -25,5 +25,15 @@ public class PostService {
     public Optional<PostModel> findById(Integer id){
         return postRepository.findById(id);
     }
+
+    public boolean deletePost(Integer id){
+        try{
+            postRepository.deleteById(id);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
+
     
 }

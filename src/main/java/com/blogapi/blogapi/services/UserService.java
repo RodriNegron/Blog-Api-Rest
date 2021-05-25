@@ -25,14 +25,10 @@ public class UserService implements UserDetailsService{
     public UserModel saveUser(UserModel user){
         return userRepository.save(user);
     }
-
+    
     public Optional<UserModel> findById(Integer id){
         return userRepository.findById(id);
     }
-
-   /*   public ArrayList<UserModel> findByEmail(String email){
-        return userRepository.findByEmail(email);
-    }  */
 
     public boolean deleteUser(Integer id){
         try{

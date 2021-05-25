@@ -31,6 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userService);
     }
 
+    //TO DO fix encrypt password
 
    /*  @Bean
     public BCryptPasswordEncoder passwordEncoder(){
@@ -48,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf()
             .disable()
             .authorizeRequests()
-            .antMatchers("/authenticate")
+            .antMatchers("/auth/login", "/user")
             .permitAll()
             .anyRequest()
             .authenticated()

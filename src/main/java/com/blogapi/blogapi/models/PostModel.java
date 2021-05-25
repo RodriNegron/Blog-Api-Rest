@@ -2,13 +2,6 @@ package com.blogapi.blogapi.models;
 
 import javax.persistence.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import java.sql.Date;
-
 import javax.persistence.*;
 
 @Entity
@@ -27,12 +20,11 @@ public class PostModel {
     private String image;
     private boolean active=true; 
     
-   /*  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    //fix
+    /* @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    private UserModel user; */
-
+    private UserModel user;  
+ */
     //region Getters & setters
     
     public void setTitle(String title) {

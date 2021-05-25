@@ -36,12 +36,13 @@ public class userController {
         return "home page";
     }
     
-  /*   @GetMapping()
-    public ArrayList<UserModel> getUsers(){
-        return userServ.getUsers();
-    } */
+    @PostMapping("/user")
+    public UserModel storeUser(@RequestBody UserModel user){
+        return this.userServ.saveUser(user);
+    }
+    
 
-    @PostMapping("/authenticate")
+    @PostMapping("/auth/login")
     public JwtResponse authenticate(@RequestBody JwtRequest jwtRequest)throws Exception{
         try{
         authenticationManager.authenticate(
@@ -62,8 +63,4 @@ public class userController {
         return new JwtResponse(token);
     }
 
-    @PostMapping()
-    public UserModel storeUser(@RequestBody UserModel user){
-        return this.userServ.saveUser(user);
-    }
 }
