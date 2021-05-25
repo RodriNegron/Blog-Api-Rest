@@ -12,6 +12,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,6 +32,9 @@ public class userController {
     @Autowired
     private UserService userServ;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     @GetMapping("/home")
     public String home(){
         return "home page";
@@ -38,9 +42,10 @@ public class userController {
     
     @PostMapping("/user")
     public UserModel storeUser(@RequestBody UserModel user){
+        String encryptedPw = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encryptedPw);
         return this.userServ.saveUser(user);
     }
-    
 
     @PostMapping("/auth/login")
     public JwtResponse authenticate(@RequestBody JwtRequest jwtRequest)throws Exception{

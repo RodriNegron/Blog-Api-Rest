@@ -33,7 +33,7 @@ public class JWTUtility implements Serializable {
         return claimsResolver.apply(claims);
     }
 
-    //for retrieving any information from token we will need the secret key
+    //secret key is needed
     private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
     }
