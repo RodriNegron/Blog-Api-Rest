@@ -47,7 +47,7 @@ public class userController {
         try{
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                   jwtRequest.getUsername(),
+                   jwtRequest.getEmail(),
                    jwtRequest.getPassword()
                 )
             );
@@ -55,7 +55,7 @@ public class userController {
             throw new Exception("INVALID",e);
         }
         final UserDetails userDetails
-        =userServ.loadUserByUsername(jwtRequest.getUsername());
+        =userServ.loadUserByUsername(jwtRequest.getEmail());
 
         final String token =
         jwtUtility.generateToken(userDetails);
