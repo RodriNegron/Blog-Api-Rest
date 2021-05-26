@@ -2,7 +2,6 @@ package com.blogapi.blogapi.controllers;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import com.blogapi.blogapi.models.PostModel;
 import com.blogapi.blogapi.services.PostService;
@@ -56,6 +55,5 @@ public class postController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
     
 }

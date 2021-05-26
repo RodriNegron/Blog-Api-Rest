@@ -30,11 +30,13 @@ public class UserModel {
     @Column(nullable = false)
     private String password;
 
-    //fix
-    /*  @OneToOne(cascade = CascadeType.ALL,
-    fetch = FetchType.LAZY,
-    mappedBy = "user")
-    private Set<PostModel> posts = new HashSet<>(); */
+    public UserModel(){
+    }
+
+    public UserModel(String email){
+        super();
+        this.email=email;
+    }
  
     //region Getters & setters
 
@@ -57,6 +59,6 @@ public class UserModel {
     public String getPassword() {
         return password;
     }
-
+    
     //endregion
 }
