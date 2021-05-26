@@ -53,6 +53,10 @@ public class PostModel {
         this.image = image;
     }
 
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public String getTitle() {
         return title;
     }

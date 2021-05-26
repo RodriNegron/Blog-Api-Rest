@@ -22,8 +22,8 @@ public class PostService {
         return postRepository.save(post);
     }
 
-    public Optional<PostModel> findById(Integer id){
-        return postRepository.findById(id);
+    public PostModel findById(Integer id){
+        return postRepository.findById(id).get();
     }
 
     public boolean deletePost(Integer id){
