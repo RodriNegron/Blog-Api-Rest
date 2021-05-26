@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "post")
 public class PostModel {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
@@ -29,6 +29,10 @@ public class PostModel {
     @JoinColumn(name = "user_FK", /* nullable = false, */ updatable = false)
     private UserModel user;
 
+    @ManyToOne
+    @JoinColumn(name = "category_FK", /* nullable = false, */ updatable = false)
+    private CaterogyModel category;
+
     public PostModel(){
     }
 
@@ -40,6 +44,9 @@ public class PostModel {
     
     //region Getters & setters
 
+    public void setCategory(CaterogyModel category) {
+        this.category = category;
+    }
     public void setUser(UserModel user) {
         this.user = user;
     }
@@ -56,6 +63,9 @@ public class PostModel {
         this.active = active;
     }
     
+    public CaterogyModel getCategory() {
+        return category;
+    }
     public UserModel getUser() {
         return user;
     }
