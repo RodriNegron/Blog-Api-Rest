@@ -28,6 +28,11 @@ public class postController {
     public ArrayList<PostModel> getPosts(){
         return postServ.getPost();
     }
+    
+    @GetMapping("/search")
+    public ArrayList<PostModel> findByTitle(String title){
+        return postServ.findByTitle(title);
+    }
 
     @GetMapping( path = "/{id}")
     public ResponseEntity<PostModel> findById(@PathVariable("id")Integer id){

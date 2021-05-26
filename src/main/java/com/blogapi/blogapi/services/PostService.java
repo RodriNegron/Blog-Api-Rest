@@ -17,6 +17,9 @@ public class PostService {
     public ArrayList <PostModel> getPost(){
         return (ArrayList<PostModel>) postRepository.findAllByOrderByCreatedAtDesc();
     }
+    public ArrayList <PostModel> findByTitle(String title){
+        return (ArrayList<PostModel>) postRepository.findByTitleLike(title);
+    }
 
     public PostModel savePost(PostModel post){
         return postRepository.save(post);
