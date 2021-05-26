@@ -1,7 +1,7 @@
 package com.blogapi.blogapi.models;
 
 import javax.persistence.Entity;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
@@ -23,7 +23,7 @@ public class PostModel {
     private boolean active=true;
 
     @Column(name = "Created_At")
-    private LocalDate createdAt= LocalDate.now();
+    private LocalDateTime createdAt= LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "user_FK", /* nullable = false, */ updatable = false)

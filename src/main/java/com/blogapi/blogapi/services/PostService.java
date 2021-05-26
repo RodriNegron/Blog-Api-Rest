@@ -15,7 +15,7 @@ public class PostService {
     PostRepository postRepository;
 
     public ArrayList <PostModel> getPost(){
-        return (ArrayList<PostModel>) postRepository.findAll();
+        return (ArrayList<PostModel>) postRepository.findAllByOrderByCreatedAtDesc();
     }
 
     public PostModel savePost(PostModel post){
