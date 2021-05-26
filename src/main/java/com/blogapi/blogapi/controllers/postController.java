@@ -60,5 +60,5 @@ public class postController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    
+
 }

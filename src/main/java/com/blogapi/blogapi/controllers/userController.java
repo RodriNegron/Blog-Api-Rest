@@ -39,11 +39,6 @@ public class userController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    @GetMapping("/home")
-    public String home(){
-        return "home page";
-    }
-
     @GetMapping( path = "/user/{id}")
     public Optional<UserModel> findById(@PathVariable("id")Integer id){
         return this.userServ.findById(id);

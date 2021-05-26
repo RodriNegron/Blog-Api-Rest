@@ -63,6 +63,9 @@ public class PostModel {
         this.active = active;
     }
     
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
     public CaterogyModel getCategory() {
         return category;
     }
