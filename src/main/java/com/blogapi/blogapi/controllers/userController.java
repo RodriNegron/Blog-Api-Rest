@@ -3,6 +3,9 @@ package com.blogapi.blogapi.controllers;
 
 import com.blogapi.blogapi.services.UserService;
 import com.blogapi.blogapi.utility.JWTUtility;
+
+import java.util.Optional;
+
 import com.blogapi.blogapi.models.JwtRequest;
 import com.blogapi.blogapi.models.JwtResponse;
 import com.blogapi.blogapi.models.UserModel;
@@ -14,6 +17,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +42,11 @@ public class userController {
     @GetMapping("/home")
     public String home(){
         return "home page";
+    }
+
+    @GetMapping( path = "/user/{id}")
+    public Optional<UserModel> findById(@PathVariable("id")Integer id){
+        return this.userServ.findById(id);
     }
     
     @PostMapping("/user")

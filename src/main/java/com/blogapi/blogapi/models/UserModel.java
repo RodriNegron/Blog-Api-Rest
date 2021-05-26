@@ -1,16 +1,10 @@
 package com.blogapi.blogapi.models;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -37,7 +31,7 @@ public class UserModel {
     private String password;
 
     //fix
-    /*  @OneToMany(cascade = CascadeType.ALL,
+    /*  @OneToOne(cascade = CascadeType.ALL,
     fetch = FetchType.LAZY,
     mappedBy = "user")
     private Set<PostModel> posts = new HashSet<>(); */
@@ -53,7 +47,6 @@ public class UserModel {
     public void setPassword(String password) {
         this.password = password;
     }
-
 
     public Integer getId() {
         return id;

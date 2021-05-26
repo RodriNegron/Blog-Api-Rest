@@ -20,13 +20,29 @@ public class PostModel {
     private String image;
     private boolean active=true; 
     
-    //fix
-    /* @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private UserModel user;  
- */
-    //region Getters & setters
+    /* @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = false )
+    private UserModel user;  */
     
+    public PostModel(){
+
+    }
+
+    public PostModel(String title, String content, String image) {
+        this.title = title;
+        this.content = content;
+        this.image = image;
+    }
+ 
+    //region Getters & setters
+
+   /*  public UserModel getUser() {
+        return user;
+    }
+    public void setUser(UserModel user) {
+        this.user = user;
+    } */
+
     public void setTitle(String title) {
         this.title = title;
     }
