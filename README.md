@@ -59,3 +59,10 @@ Delete one:
 
 soft delete specific post, setting "active" attribute to false
 
+- GET /posts/search?title=
+
+Search posts:
+
+Serch posts by title
+
+---
